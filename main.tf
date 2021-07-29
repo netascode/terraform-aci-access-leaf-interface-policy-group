@@ -91,6 +91,7 @@ resource "aci_rest" "infraRsLacpInterfacePol" {
 }
 
 resource "aci_rest" "infraRsAttEntP" {
+  count      = var.aaep != "" ? 1 : 0
   dn         = "${aci_rest.infraAccGrp.id}/rsattEntP"
   class_name = "infraRsAttEntP"
   content = {
