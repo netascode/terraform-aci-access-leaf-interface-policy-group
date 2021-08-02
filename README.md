@@ -47,18 +47,18 @@ module "aci_access_leaf_interface_policy_group" {
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Leaf interface policy group name | `string` | n/a | yes |
-| <a name="input_type"></a> [type](#input\_type) | Type, Choices: `access`, `vpc`, `pc` | `string` | `"access"` | no |
-| <a name="input_link_level_policy"></a> [link\_level\_policy](#input\_link\_level\_policy) | Link level policy name | `string` | `""` | no |
-| <a name="input_cdp_policy"></a> [cdp\_policy](#input\_cdp\_policy) | CDP policy name | `string` | `""` | no |
-| <a name="input_lldp_policy"></a> [lldp\_policy](#input\_lldp\_policy) | LLDP policy name | `string` | `""` | no |
-| <a name="input_spanning_tree_policy"></a> [spanning\_tree\_policy](#input\_spanning\_tree\_policy) | Spanning tree policy name | `string` | `""` | no |
-| <a name="input_mcp_policy"></a> [mcp\_policy](#input\_mcp\_policy) | MCP policy name | `string` | `""` | no |
-| <a name="input_l2_policy"></a> [l2\_policy](#input\_l2\_policy) | L2 policy name | `string` | `""` | no |
-| <a name="input_storm_control_policy"></a> [storm\_control\_policy](#input\_storm\_control\_policy) | Storm control policy name | `string` | `""` | no |
-| <a name="input_port_channel_policy"></a> [port\_channel\_policy](#input\_port\_channel\_policy) | Port channel policy name | `string` | `""` | no |
-| <a name="input_port_channel_member_policy"></a> [port\_channel\_member\_policy](#input\_port\_channel\_member\_policy) | Port channel member policy name | `string` | `""` | no |
-| <a name="input_aaep"></a> [aaep](#input\_aaep) | Attachable access entity profile name | `string` | `""` | no |
+| <a name="input_name"></a> [name](#input\_name) | Leaf interface policy group name. | `string` | n/a | yes |
+| <a name="input_type"></a> [type](#input\_type) | Type. Choices: `access`, `vpc`, `pc`. | `string` | `"access"` | no |
+| <a name="input_link_level_policy"></a> [link\_level\_policy](#input\_link\_level\_policy) | Link level policy name. | `string` | `""` | no |
+| <a name="input_cdp_policy"></a> [cdp\_policy](#input\_cdp\_policy) | CDP policy name. | `string` | `""` | no |
+| <a name="input_lldp_policy"></a> [lldp\_policy](#input\_lldp\_policy) | LLDP policy name. | `string` | `""` | no |
+| <a name="input_spanning_tree_policy"></a> [spanning\_tree\_policy](#input\_spanning\_tree\_policy) | Spanning tree policy name. | `string` | `""` | no |
+| <a name="input_mcp_policy"></a> [mcp\_policy](#input\_mcp\_policy) | MCP policy name. | `string` | `""` | no |
+| <a name="input_l2_policy"></a> [l2\_policy](#input\_l2\_policy) | L2 policy name. | `string` | `""` | no |
+| <a name="input_storm_control_policy"></a> [storm\_control\_policy](#input\_storm\_control\_policy) | Storm control policy name. | `string` | `""` | no |
+| <a name="input_port_channel_policy"></a> [port\_channel\_policy](#input\_port\_channel\_policy) | Port channel policy name. | `string` | `""` | no |
+| <a name="input_port_channel_member_policy"></a> [port\_channel\_member\_policy](#input\_port\_channel\_member\_policy) | Port channel member policy name. | `string` | `""` | no |
+| <a name="input_aaep"></a> [aaep](#input\_aaep) | Attachable access entity profile name. | `string` | `""` | no |
 
 ## Outputs
 

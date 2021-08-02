@@ -1,5 +1,5 @@
 variable "name" {
-  description = "Leaf interface policy group name"
+  description = "Leaf interface policy group name."
   type        = string
 
   validation {
@@ -9,7 +9,7 @@ variable "name" {
 }
 
 variable "type" {
-  description = "Type, Choices: `access`, `vpc`, `pc`"
+  description = "Type. Choices: `access`, `vpc`, `pc`."
   type        = string
   default     = "access"
 
@@ -20,7 +20,7 @@ variable "type" {
 }
 
 variable "link_level_policy" {
-  description = "Link level policy name"
+  description = "Link level policy name."
   type        = string
   default     = ""
 
@@ -31,7 +31,7 @@ variable "link_level_policy" {
 }
 
 variable "cdp_policy" {
-  description = "CDP policy name"
+  description = "CDP policy name."
   type        = string
   default     = ""
 
@@ -42,7 +42,7 @@ variable "cdp_policy" {
 }
 
 variable "lldp_policy" {
-  description = "LLDP policy name"
+  description = "LLDP policy name."
   type        = string
   default     = ""
 
@@ -53,7 +53,7 @@ variable "lldp_policy" {
 }
 
 variable "spanning_tree_policy" {
-  description = "Spanning tree policy name"
+  description = "Spanning tree policy name."
   type        = string
   default     = ""
 
@@ -64,7 +64,7 @@ variable "spanning_tree_policy" {
 }
 
 variable "mcp_policy" {
-  description = "MCP policy name"
+  description = "MCP policy name."
   type        = string
   default     = ""
 
@@ -75,7 +75,7 @@ variable "mcp_policy" {
 }
 
 variable "l2_policy" {
-  description = "L2 policy name"
+  description = "L2 policy name."
   type        = string
   default     = ""
 
@@ -86,7 +86,7 @@ variable "l2_policy" {
 }
 
 variable "storm_control_policy" {
-  description = "Storm control policy name"
+  description = "Storm control policy name."
   type        = string
   default     = ""
 
@@ -97,7 +97,7 @@ variable "storm_control_policy" {
 }
 
 variable "port_channel_policy" {
-  description = "Port channel policy name"
+  description = "Port channel policy name."
   type        = string
   default     = ""
 
@@ -108,7 +108,7 @@ variable "port_channel_policy" {
 }
 
 variable "port_channel_member_policy" {
-  description = "Port channel member policy name"
+  description = "Port channel member policy name."
   type        = string
   default     = ""
 
@@ -119,7 +119,7 @@ variable "port_channel_member_policy" {
 }
 
 variable "aaep" {
-  description = "Attachable access entity profile name"
+  description = "Attachable access entity profile name."
   type        = string
   default     = ""
 
