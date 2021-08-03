@@ -64,8 +64,8 @@ module "aci_access_leaf_interface_policy_group" {
 
 | Name | Description |
 |------|-------------|
-| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `infraAccGrp` object |
-| <a name="output_name"></a> [name](#output\_name) | Leaf interface policy group name |
+| <a name="output_dn"></a> [dn](#output\_dn) | Distinguished name of `infraAccGrp` object. |
+| <a name="output_name"></a> [name](#output\_name) | Leaf interface policy group name. |
 
 ## Resources
 
