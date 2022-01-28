@@ -1,6 +1,6 @@
 module "aci_access_leaf_interface_policy_group" {
   source  = "netascode/access-leaf-interface-policy-group/aci"
-  version = ">= 0.0.1"
+  version = ">= 0.1.0"
 
   name                       = "VPC1"
   type                       = "vpc"

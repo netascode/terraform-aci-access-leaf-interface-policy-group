@@ -5,8 +5,8 @@ terraform {
     }
 
     aci = {
-      source  = "netascode/aci"
-      version = ">=0.2.0"
+      source  = "CiscoDevNet/aci"
+      version = ">=2.0.0"
     }
   }
 }
@@ -28,7 +28,7 @@ module "main" {
   aaep                       = "AAEP1"
 }
 
-data "aci_rest" "infraAccGrp" {
+data "aci_rest_managed" "infraAccGrp" {
   dn = "uni/infra/funcprof/accbundle-${module.main.name}"
 
   depends_on = [module.main]
@@ -39,19 +39,19 @@ resource "test_assertions" "infraAccGrp" {
 
   equal "name" {
     description = "name"
-    got         = data.aci_rest.infraAccGrp.content.name
+    got         = data.aci_rest_managed.infraAccGrp.content.name
     want        = module.main.name
   }
 
   equal "lagT" {
     description = "lagT"
-    got         = data.aci_rest.infraAccGrp.content.lagT
+    got         = data.aci_rest_managed.infraAccGrp.content.lagT
     want        = "node"
   }
 }
 
-data "aci_rest" "infraRsHIfPol" {
-  dn = "${data.aci_rest.infraAccGrp.id}/rshIfPol"
+data "aci_rest_managed" "infraRsHIfPol" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/rshIfPol"
 
   depends_on = [module.main]
 }
@@ -61,13 +61,13 @@ resource "test_assertions" "infraRsHIfPol" {
 
   equal "tnFabricHIfPolName" {
     description = "tnFabricHIfPolName"
-    got         = data.aci_rest.infraRsHIfPol.content.tnFabricHIfPolName
+    got         = data.aci_rest_managed.infraRsHIfPol.content.tnFabricHIfPolName
     want        = "10G"
   }
 }
 
-data "aci_rest" "infraRsCdpIfPol" {
-  dn = "${data.aci_rest.infraAccGrp.id}/rscdpIfPol"
+data "aci_rest_managed" "infraRsCdpIfPol" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/rscdpIfPol"
 
   depends_on = [module.main]
 }
@@ -77,13 +77,13 @@ resource "test_assertions" "infraRsCdpIfPol" {
 
   equal "tnCdpIfPolName" {
     description = "tnCdpIfPolName"
-    got         = data.aci_rest.infraRsCdpIfPol.content.tnCdpIfPolName
+    got         = data.aci_rest_managed.infraRsCdpIfPol.content.tnCdpIfPolName
     want        = "CDP-ON"
   }
 }
 
-data "aci_rest" "infraRsLldpIfPol" {
-  dn = "${data.aci_rest.infraAccGrp.id}/rslldpIfPol"
+data "aci_rest_managed" "infraRsLldpIfPol" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/rslldpIfPol"
 
   depends_on = [module.main]
 }
@@ -93,13 +93,13 @@ resource "test_assertions" "infraRsLldpIfPol" {
 
   equal "tnLldpIfPolName" {
     description = "tnLldpIfPolName"
-    got         = data.aci_rest.infraRsLldpIfPol.content.tnLldpIfPolName
+    got         = data.aci_rest_managed.infraRsLldpIfPol.content.tnLldpIfPolName
     want        = "LLDP-OFF"
   }
 }
 
-data "aci_rest" "infraRsStpIfPol" {
-  dn = "${data.aci_rest.infraAccGrp.id}/rsstpIfPol"
+data "aci_rest_managed" "infraRsStpIfPol" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/rsstpIfPol"
 
   depends_on = [module.main]
 }
@@ -109,13 +109,13 @@ resource "test_assertions" "infraRsStpIfPol" {
 
   equal "tnStpIfPolName" {
     description = "tnStpIfPolName"
-    got         = data.aci_rest.infraRsStpIfPol.content.tnStpIfPolName
+    got         = data.aci_rest_managed.infraRsStpIfPol.content.tnStpIfPolName
     want        = "BPDU-GUARD"
   }
 }
 
-data "aci_rest" "infraRsMcpIfPol" {
-  dn = "${data.aci_rest.infraAccGrp.id}/rsmcpIfPol"
+data "aci_rest_managed" "infraRsMcpIfPol" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/rsmcpIfPol"
 
   depends_on = [module.main]
 }
@@ -125,13 +125,13 @@ resource "test_assertions" "infraRsMcpIfPol" {
 
   equal "tnMcpIfPolName" {
     description = "tnMcpIfPolName"
-    got         = data.aci_rest.infraRsMcpIfPol.content.tnMcpIfPolName
+    got         = data.aci_rest_managed.infraRsMcpIfPol.content.tnMcpIfPolName
     want        = "MCP-ON"
   }
 }
 
-data "aci_rest" "infraRsL2IfPol" {
-  dn = "${data.aci_rest.infraAccGrp.id}/rsl2IfPol"
+data "aci_rest_managed" "infraRsL2IfPol" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/rsl2IfPol"
 
   depends_on = [module.main]
 }
@@ -141,13 +141,13 @@ resource "test_assertions" "infraRsL2IfPol" {
 
   equal "tnL2IfPolName" {
     description = "tnL2IfPolName"
-    got         = data.aci_rest.infraRsL2IfPol.content.tnL2IfPolName
+    got         = data.aci_rest_managed.infraRsL2IfPol.content.tnL2IfPolName
     want        = "PORT-LOCAL"
   }
 }
 
-data "aci_rest" "infraRsStormctrlIfPol" {
-  dn = "${data.aci_rest.infraAccGrp.id}/rsstormctrlIfPol"
+data "aci_rest_managed" "infraRsStormctrlIfPol" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/rsstormctrlIfPol"
 
   depends_on = [module.main]
 }
@@ -157,13 +157,13 @@ resource "test_assertions" "infraRsStormctrlIfPol" {
 
   equal "tnStormctrlIfPolName" {
     description = "tnStormctrlIfPolName"
-    got         = data.aci_rest.infraRsStormctrlIfPol.content.tnStormctrlIfPolName
+    got         = data.aci_rest_managed.infraRsStormctrlIfPol.content.tnStormctrlIfPolName
     want        = "10P"
   }
 }
 
-data "aci_rest" "infraRsLacpPol" {
-  dn = "${data.aci_rest.infraAccGrp.id}/rslacpPol"
+data "aci_rest_managed" "infraRsLacpPol" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/rslacpPol"
 
   depends_on = [module.main]
 }
@@ -173,13 +173,13 @@ resource "test_assertions" "infraRsLacpPol" {
 
   equal "tnLacpLagPolName" {
     description = "tnLacpLagPolName"
-    got         = data.aci_rest.infraRsLacpPol.content.tnLacpLagPolName
+    got         = data.aci_rest_managed.infraRsLacpPol.content.tnLacpLagPolName
     want        = "LACP"
   }
 }
 
-data "aci_rest" "infraAccBndlSubgrp" {
-  dn = "${data.aci_rest.infraAccGrp.id}/accsubbndl-${module.main.name}"
+data "aci_rest_managed" "infraAccBndlSubgrp" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/accsubbndl-${module.main.name}"
 
   depends_on = [module.main]
 }
@@ -189,13 +189,13 @@ resource "test_assertions" "infraAccBndlSubgrp" {
 
   equal "name" {
     description = "name"
-    got         = data.aci_rest.infraAccBndlSubgrp.content.name
+    got         = data.aci_rest_managed.infraAccBndlSubgrp.content.name
     want        = module.main.name
   }
 }
 
-data "aci_rest" "infraRsLacpInterfacePol" {
-  dn = "${data.aci_rest.infraAccBndlSubgrp.id}/rslacpInterfacePol"
+data "aci_rest_managed" "infraRsLacpInterfacePol" {
+  dn = "${data.aci_rest_managed.infraAccBndlSubgrp.id}/rslacpInterfacePol"
 
   depends_on = [module.main]
 }
@@ -205,13 +205,13 @@ resource "test_assertions" "infraRsLacpInterfacePol" {
 
   equal "tnLacpIfPolName" {
     description = "tnLacpIfPolName"
-    got         = data.aci_rest.infraRsLacpInterfacePol.content.tnLacpIfPolName
+    got         = data.aci_rest_managed.infraRsLacpInterfacePol.content.tnLacpIfPolName
     want        = "FAST"
   }
 }
 
-data "aci_rest" "infraRsAttEntP" {
-  dn = "${data.aci_rest.infraAccGrp.id}/rsattEntP"
+data "aci_rest_managed" "infraRsAttEntP" {
+  dn = "${data.aci_rest_managed.infraAccGrp.id}/rsattEntP"
 
   depends_on = [module.main]
 }
@@ -221,7 +221,7 @@ resource "test_assertions" "infraRsAttEntP" {
 
   equal "tDn" {
     description = "tDn"
-    got         = data.aci_rest.infraRsAttEntP.content.tDn
+    got         = data.aci_rest_managed.infraRsAttEntP.content.tDn
     want        = "uni/infra/attentp-AAEP1"
   }
 }
