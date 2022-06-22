@@ -1,3 +1,7 @@
+## 0.1.2 (unreleased)
+
+- Do not configure interface policies for breakout interface policy groups
+
 ## 0.1.1
 
 - Add support for breakout interface policy groups
