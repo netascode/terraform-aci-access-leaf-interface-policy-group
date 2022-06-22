@@ -1,4 +1,4 @@
-## 0.1.2 (unreleased)
+## 0.1.2
 
 - Do not configure interface policies for breakout interface policy groups
 
