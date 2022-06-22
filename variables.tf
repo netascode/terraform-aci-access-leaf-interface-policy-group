@@ -9,13 +9,24 @@ variable "name" {
 }
 
 variable "type" {
-  description = "Type. Choices: `access`, `vpc`, `pc`."
+  description = "Type. Choices: `access`, `vpc`, `pc`, `breakout`."
   type        = string
   default     = "access"
 
   validation {
-    condition     = contains(["access", "vpc", "pc"], var.type)
-    error_message = "Valid values are `access`, `vpc` or `pc`."
+    condition     = contains(["access", "vpc", "pc", "breakout"], var.type)
+    error_message = "Valid values are `access`, `vpc`, `pc` or `breakout`."
+  }
+}
+
+variable "map" {
+  description = "Breakout map. Only relevant if `type` is `breakout`. Choices: `none`, `10g-4x`, `25g-4x`, `100g-2x`, `50g-8x`, `100g-4x`."
+  type        = string
+  default     = "none"
+
+  validation {
+    condition     = contains(["none", "10g-4x", "25g-4x", "100g-2x", "50g-8x", "100g-4x"], var.map)
+    error_message = "Valid values are `none`, `10g-4x`, `25g-4x`, `100g-2x`, `50g-8x` or `100g-4x`."
   }
 }
 

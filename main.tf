@@ -1,9 +1,10 @@
 resource "aci_rest_managed" "infraAccGrp" {
   dn         = var.type == "access" ? "uni/infra/funcprof/accportgrp-${var.name}" : "uni/infra/funcprof/accbundle-${var.name}"
-  class_name = var.type == "access" ? "infraAccPortGrp" : "infraAccBndlGrp"
+  class_name = var.type == "access" ? "infraAccPortGrp" : var.type == "breakout" ? "infraBrkoutPortGrp" : "infraAccBndlGrp"
   content = {
-    name = var.name
-    lagT = var.type == "vpc" ? "node" : var.type == "pc" ? "link" : null
+    name      = var.name
+    lagT      = var.type == "vpc" ? "node" : var.type == "pc" ? "link" : null
+    brkoutMap = var.type == "breakout" ? var.map : null
   }
 }
 
