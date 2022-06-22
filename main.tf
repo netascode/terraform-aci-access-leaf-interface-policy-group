@@ -1,5 +1,5 @@
 resource "aci_rest_managed" "infraAccGrp" {
-  dn         = var.type == "access" ? "uni/infra/funcprof/accportgrp-${var.name}" : "uni/infra/funcprof/accbundle-${var.name}"
+  dn         = var.type == "access" ? "uni/infra/funcprof/accportgrp-${var.name}" : var.type == "breakout" ? "uni/infra/funcprof/brkoutportgrp-${var.name}" : "uni/infra/funcprof/accbundle-${var.name}"
   class_name = var.type == "access" ? "infraAccPortGrp" : var.type == "breakout" ? "infraBrkoutPortGrp" : "infraAccBndlGrp"
   content = {
     name      = var.name
