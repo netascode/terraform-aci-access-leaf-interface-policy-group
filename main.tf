@@ -81,7 +81,7 @@ resource "aci_rest_managed" "infraRsLacpPol" {
 }
 
 resource "aci_rest_managed" "infraAccBndlSubgrp" {
-  count      = (var.type == "vpc" || var.type == "pc") ? 1 : 0
+  count      = (var.type == "vpc" || var.type == "pc") && var.port_channel_member_policy != "" ? 1 : 0
   dn         = "${aci_rest_managed.infraAccGrp.dn}/accsubbndl-${var.name}"
   class_name = "infraAccBndlSubgrp"
   content = {
@@ -90,7 +90,7 @@ resource "aci_rest_managed" "infraAccBndlSubgrp" {
 }
 
 resource "aci_rest_managed" "infraRsLacpInterfacePol" {
-  count      = (var.type == "vpc" || var.type == "pc") ? 1 : 0
+  count      = (var.type == "vpc" || var.type == "pc") && var.port_channel_member_policy != "" ? 1 : 0
   dn         = "${aci_rest_managed.infraAccBndlSubgrp[0].dn}/rslacpInterfacePol"
   class_name = "infraRsLacpInterfacePol"
   content = {

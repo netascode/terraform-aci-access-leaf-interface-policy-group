@@ -1,3 +1,7 @@
+## 0.1.3 (unreleased)
+
+- Do not configure `infraAccBndlSubgrp` without member policy
+
 ## 0.1.2
 
 - Do not configure interface policies for breakout interface policy groups
