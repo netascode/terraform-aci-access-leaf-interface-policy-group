@@ -1,4 +1,4 @@
-## 0.1.3 (unreleased)
+## 0.1.3
 
 - Do not configure `infraAccBndlSubgrp` without member policy
 
