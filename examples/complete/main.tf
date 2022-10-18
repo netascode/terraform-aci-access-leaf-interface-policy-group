@@ -1,8 +1,9 @@
 module "aci_access_leaf_interface_policy_group" {
   source  = "netascode/access-leaf-interface-policy-group/aci"
-  version = ">= 0.1.0"
+  version = ">= 0.1.4"
 
   name                       = "VPC1"
+  description                = "VPC Interface Policy Group 1"
   type                       = "vpc"
   link_level_policy          = "10G"
   cdp_policy                 = "CDP-ON"

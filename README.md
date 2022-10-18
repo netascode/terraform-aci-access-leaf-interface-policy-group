@@ -13,9 +13,10 @@ Location in GUI:
 ```hcl
 module "aci_access_leaf_interface_policy_group" {
   source  = "netascode/access-leaf-interface-policy-group/aci"
-  version = ">= 0.1.0"
+  version = ">= 0.1.4"
 
   name                       = "VPC1"
+  description                = "VPC Interface Policy Group 1"
   type                       = "vpc"
   link_level_policy          = "10G"
   cdp_policy                 = "CDP-ON"
@@ -48,6 +49,7 @@ module "aci_access_leaf_interface_policy_group" {
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_name"></a> [name](#input\_name) | Leaf interface policy group name. | `string` | n/a | yes |
+| <a name="input_description"></a> [description](#input\_description) | Description. | `string` | `""` | no |
 | <a name="input_type"></a> [type](#input\_type) | Type. Choices: `access`, `vpc`, `pc`, `breakout`. | `string` | `"access"` | no |
 | <a name="input_map"></a> [map](#input\_map) | Breakout map. Only relevant if `type` is `breakout`. Choices: `none`, `10g-4x`, `25g-4x`, `100g-2x`, `50g-8x`, `100g-4x`. | `string` | `"none"` | no |
 | <a name="input_link_level_policy"></a> [link\_level\_policy](#input\_link\_level\_policy) | Link level policy name. | `string` | `""` | no |

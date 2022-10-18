@@ -3,6 +3,7 @@ resource "aci_rest_managed" "infraAccGrp" {
   class_name = var.type == "access" ? "infraAccPortGrp" : var.type == "breakout" ? "infraBrkoutPortGrp" : "infraAccBndlGrp"
   content = {
     name      = var.name
+    descr     = var.description
     lagT      = var.type == "vpc" ? "node" : var.type == "pc" ? "link" : null
     brkoutMap = var.type == "breakout" ? var.map : null
   }

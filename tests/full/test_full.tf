@@ -17,6 +17,7 @@ module "main" {
   source = "../.."
 
   name                       = "VPC1"
+  description                = "VPC Interface Policy Group 1"
   type                       = "vpc"
   link_level_policy          = "10G"
   cdp_policy                 = "CDP-ON"
@@ -43,6 +44,12 @@ resource "test_assertions" "infraAccGrp" {
     description = "name"
     got         = data.aci_rest_managed.infraAccGrp.content.name
     want        = module.main.name
+  }
+
+  equal "descr" {
+    description = "descr"
+    got         = data.aci_rest_managed.infraAccGrp.content.descr
+    want        = "VPC Interface Policy Group 1"
   }
 
   equal "lagT" {
